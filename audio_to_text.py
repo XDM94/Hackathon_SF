@@ -1,11 +1,13 @@
 import whisper
 import os
 
+
 # Функция для получения модели whisper, по умолчанию small
 def get_model(size="small"):
     model_name = size
     model = whisper.load_model(model_name)
     return model
+
 
 # Функция для преобразования аудио в текст.
 # На вход получает путь к файлу аудио и модель whisper
