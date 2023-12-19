@@ -6,7 +6,7 @@ from prompt_generation import prompt_generation
 from get_model_res import get_model_res
 import telebot
 
-model = get_model()
+model = get_model(size="small")
 
 
 def main(user_input):
@@ -20,7 +20,7 @@ def main(user_input):
     return res
 
 
-TOKEN = "BOT_TOKEN"
+TOKEN = "BOT-TOKEN"
 bot = telebot.TeleBot(TOKEN)
 
 

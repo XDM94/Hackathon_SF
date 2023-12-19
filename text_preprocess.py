@@ -1,6 +1,13 @@
-from nltk.tokenize import sent_tokenize, word_tokenize # Для токенизации текста для последующей передачи в модель суммаризации
-from spellchecker import SpellChecker  # Для исправления ошибочно транскрибированных слов
-import re
+from nltk.tokenize import (
+    sent_tokenize,
+    word_tokenize,
+)  # Для токенизации текста для последующей передачи в модель суммаризации
+from spellchecker import (
+    SpellChecker,
+)  # Для исправления ошибочно транскрибированных слов
+import re, nltk
+
+nltk.download("punkt")
 
 
 def text_preprocess(text):

@@ -1,5 +1,4 @@
 import re
-import telebot
 
 
 def check_input(user_input):

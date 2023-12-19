@@ -7,7 +7,7 @@ def get_model_res(prompt, text):
   url = "https://llm.api.cloud.yandex.net/foundationModels/v1/completion"
   headers = {
       "Content-Type": "application/json",
-      "Authorization": "Api-Key YOUR_API_KEY"
+      "Authorization": "Api-Key API-KEY"
   }
   response = requests.post(url, headers=headers, json=prompt_generation(text))
   response_text = response.text

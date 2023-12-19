@@ -20,7 +20,7 @@ def download_audio_from_link(link):
         clean_title = re.sub(r'[\\/*?:"<>|]', "_", video.title)
 
         # Формируем путь к файлу для сохранения аудио
-        file_path = f"PATH_TO_FOLDER\\{clean_title}.mp3"
+        file_path = f"D:\\PATH\TO\\FOLDER\\{clean_title}.mp3"
 
         # Загружаем аудио в файл
         highest_quality_audio.download(filename=file_path)

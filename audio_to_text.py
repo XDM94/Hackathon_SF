@@ -11,9 +11,9 @@ def audio_to_text(path_to_audio, model):
     if not model:
         model = get_model()
         print("Модель была загружена.")
-    text = model.transcribe(path_to_audio, fp16=False)
-    text = [i for i in text]
-    text = " ".join(text)
+    result = model.transcribe(path_to_audio, language="ru", fp16=False, verbose=True)
+    text = result['text']
+    
     print("Видео транскрибировано.")
     # os.remove(path_to_audio)
     return text

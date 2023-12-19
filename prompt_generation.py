@@ -1,7 +1,7 @@
 def prompt_generation(text):
     # Обновление поля "text" в сообщении в объекте prompt
     prompt = {
-        "modelUri": "gpt://MODEL/summarization",
+        "modelUri": "gpt://GPT-TOKEN/summarization",
         "completionOptions": {"stream": False, "temperature": 0.1, "maxTokens": "2000"},
         "messages": [
             {
