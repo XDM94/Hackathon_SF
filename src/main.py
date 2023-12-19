@@ -1,3 +1,4 @@
+# Импорт всех функций проекта и telebot для запуска телеграм бота
 from download_audio_from_link import download_audio_from_link
 from check_input import check_input
 from audio_to_text import audio_to_text, get_model
@@ -6,21 +7,33 @@ from prompt_generation import prompt_generation
 from get_model_res import get_model_res
 import telebot
 
+# Получение модели whsper. ЗДЕСЬ МОЖНО НАСТРОИТЬ КОРПУС (по умолчанию small)
 model = get_model(size="small")
 
-
+# Основная функция, которая объединяет остальные 
+# На вход получает пользовательский ввод (получает от бота)
 def main(user_input):
+    # Получение ответа от check_input (True или False)
     is_link = check_input(user_input)
+    # Если ввод проходит проверку, то 
     if is_link:
+        # Получение содержимого из аудиофайла и пути к файлу
         audio_content, file_path = download_audio_from_link(user_input)
+        # Транскрибация аудио
         text = audio_to_text(file_path, model)
+        # Обработка текста (исправление ошибок транскрибации)
         tokens = text_preprocess(text)
+        # Получение промпт-запроса к модели
         prompt = prompt_generation(tokens)
+        # Получение ответа от модели yandexGPT
         res = get_model_res(prompt, text)
+    else:
+        res = 'Неверный формат ввода. Пожалуйста, введите корректную ссылку на видео в YouTube.'
     return res
 
-
+# Указание токена бота. ЗДЕСЬ НУЖНО УКАЗАТЬ ТОКЕН.
 TOKEN = "BOT-TOKEN"
+# Создание объекта из библиотеки telebot и обозначение его в переменную
 bot = telebot.TeleBot(TOKEN)
 
 

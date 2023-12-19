@@ -23,6 +23,7 @@ def text_preprocess(text):
         r"\[\d{2}:\d{2}\.\d+\s*-->\s*\d{2}:\d{2}\.\d+\]\s*", "", corrected_text
     )
 
+    # ЧТО ПРОИСХОДИТ НИЖЕ НАДО УБРАТЬ И БЕЗ ЭТОГО ПОТЕСТИТЬ
     # Разделение на предложения
     sentences = sent_tokenize(text_only, language="russian")
 
