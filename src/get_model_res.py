@@ -22,6 +22,10 @@ def get_model_res(prompt, text):
   # Преобразование для работы с json
   response_dict = json.loads(response_text)
 
-# Извлечение текста ответа модели из json
-  model_response = response_dict["result"]["alternatives"][0]["message"]["text"]
+# Извлечение текста ответа модели из json и обработка ошибки получения ответа от сервера Яндекса.
+  try:
+    model_response = response_dict["result"]["alternatives"][0]["message"]["text"]
+  except:
+    model_response = 'Ошибка, загрузрите другое видео.'
+  
   return model_response
