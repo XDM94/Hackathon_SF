@@ -7,8 +7,8 @@ from prompt_generation import prompt_generation
 from get_model_res import get_model_res
 import telebot
 
-# Получение модели whsper. ЗДЕСЬ МОЖНО НАСТРОИТЬ КОРПУС (по умолчанию small)
-model = get_model(size="small")
+# Получение модели whsper. ЗДЕСЬ МОЖНО НАСТРОИТЬ КОРПУС (по умолчанию base)
+model = get_model(size="base")
 
 # Основная функция, которая объединяет остальные 
 # На вход получает пользовательский ввод (получает от бота)
